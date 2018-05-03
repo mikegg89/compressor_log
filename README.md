@@ -16,14 +16,14 @@ SELECT
     cyl_3,
     cyl_4,
   CASE
-    WHEN cyl_1 >= cyl_3 + 11 AND cyl_2 >= cyl_4 + 11 THEN 'all valves could be hot valves'
-    WHEN cyl_1 >= cyl_3 + 15 AND cyl_4 >= cyl_2 + 15 THEN 'all valves could be hot valves'
-    WHEN cyl_3 >= cyl_1 + 15 AND cyl_2 >= cyl_4 + 15 THEN 'all valves could be hot valves'
-    WHEN cyl_3 >= cyl_1 + 15 AND cyl_4 >= cyl_2 + 15 THEN 'all valves could be hot valves'
-    WHEN cyl_1 >= cyl_3 + 15  THEN 'cyl 1 or 3 has hot valves'
-    WHEN cyl_3 >= cyl_1 + 15  THEN 'cyl 1 or 3 has hot valves'
-    WHEN cyl_2 >= cyl_4 + 15 THEN 'cyl 2 or 4 has hot valves'
-    WHEN cyl_4 >= cyl_2 + 15 THEN 'cyl 2 or 4 has hot valves'
+    WHEN cyl_1 >= cyl_3 + 11 AND cyl_2 >= cyl_4 + 11 THEN 'all valves could be hot'
+    WHEN cyl_1 >= cyl_3 + 15 AND cyl_4 >= cyl_2 + 15 THEN 'all valves could be hot'
+    WHEN cyl_3 >= cyl_1 + 15 AND cyl_2 >= cyl_4 + 15 THEN 'all valves could be hot'
+    WHEN cyl_3 >= cyl_1 + 15 AND cyl_4 >= cyl_2 + 15 THEN 'all valves could be hot'
+    WHEN cyl_1 >= cyl_3 + 15  THEN 'cyl 1 or 3 might have hot valves'
+    WHEN cyl_3 >= cyl_1 + 15  THEN 'cyl 1 or 3 might have hot valves'
+    WHEN cyl_2 >= cyl_4 + 15 THEN 'cyl 2 or 4 might have hot valves'
+    WHEN cyl_4 >= cyl_2 + 15 THEN 'cyl 2 or 4 might have hot valves'
     ELSE 'valves are ok'
   END AS 'VALVES'
 FROM comp_log
