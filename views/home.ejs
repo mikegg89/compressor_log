@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="app.css">
+
+  <h1>COMPRESSOR LOG</h1>
+
+  <form method="POST" action='/register'>
+   <input type="text" name='suction' class="form" placeholder="suct">
+   <input type="text" name='discharge' class="form" placeholder="disch">
+   <input type="text" name='rpm' class="form" placeholder="rpm">
+   <input type="text" name='comp_load' class="form" placeholder="comp_load">
+   <input type="text" name='hours' class="form" placeholder="hours">
+   <input type="text" name='eng_temp' class="form" placeholder="eng_temp">
+   <input type="text" name='eng_psi' class="form" placeholder="eng_psi">
+   <input type="text" name='comp_temp' class="form" placeholder="comp_temp">
+   <input type="text" name='comp_psi' class="form" placeholder="comp_psi">
+   <input type="text" name='cyl_1' class="form" placeholder="cyl_1">
+   <input type="text" name='cyl_2' class="form" placeholder="cyl_2">
+   <input type="text" name='cyl_3' class="form" placeholder="cyl_3">
+   <input type="text" name='cyl_4' class="form" placeholder="cyl_4">
+   <input type="text" name='catalyst_temp' class="form" placeholder="cat_temp"></br>
+   Compressor <input list="comp" name="comp_id" placeholder="comp#">
+     <datalist id="comp">
+      <option value="1">Jarvis comp #1</option>
+      <option value="2">Jarvis comp #2</option>
+      <option value="3">Jarvis comp #3</option>
+      <option value="4">Jarvis comp #4</option>
+      <option value="5">Jarvis comp #6</option>
+      <option value="6">Jarvis comp #10</option>
+      <option value="7">Jarvis comp #11</option>
+      <option value="8">Jarvis comp #12</option>
+      <option value="9">Jarvis comp #13</option>
+      <option value="10">East Rhome comp #1</option>
+      <option value="11">East Rhome comp #2</option>
+      <option value="12">Ross comp #1</option>
+    </datalist>
+   Operator <input list="operator" name="operator_id" placeholder="operator">
+     <datalist id="operator">
+      <option value="1">Micheal</option>
+      <option value="2">Ruben</option>
+      <option value="3">Jim</option>
+      <option value="4">Steve</option>
+      <option value="5">Marvin</option>
+    </datalist><br/>
+   <button>Submit</button>
+  </form>
+
+<h3>
+  <ul>
+    <li><%=first_name%> logged | <%=location_name%> | <%=comp_name%> | <%=created_at%> </li>
+    <li>cyl_1: <%=cyl_1%>° | cyl_2: <%=cyl_2%>° | cyl_3: <%=cyl_3%>° | cyl_4: <%=cyl_4%>° </li>
+    <li><strong class='alertInfo'><%=valves%></strong></li>
+  </ul>
+
+</h3>

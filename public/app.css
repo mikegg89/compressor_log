@@ -1,0 +1,58 @@
+body {
+  color: #B8860B;
+  text-align: center;
+  background-size: cover;
+}
+
+flex-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+.form {
+  border: solid;
+  border-color: gray;
+  margin-top: 5px;
+  width: 6.2%;
+}
+
+button {
+  line-height: 2.0;
+  border: none;
+  border:3px solid darkgray;
+  color: white;
+  padding: 1px 10px;
+  background: gray;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  border:3px solid gray;
+}
+
+ul {
+  list-style: none;
+  color: rgb(77, 77, 77);
+  margin-right: 30px;
+}
+
+.alertInfo {
+  color: red;
+  font-size: 2ex;
+}
+
+input[list]
+{
+  border:2px solid gray;
+  width: 8%;
+  text-align: justify;
+  margin-top: 5px;
+}
