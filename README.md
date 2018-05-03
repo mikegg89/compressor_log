@@ -1,7 +1,7 @@
 # Compressor_log
 Used Express and SQL to create a site that natural gas operators can log compressor data into and have an alert dependent on temperatures being out of speck.
 
-![image text](https://user-images.githubusercontent.com/28475668/39559763-56e0a230-4e5e-11e8-9cef-cd7c8611d067.png)
+![image text](https://user-images.githubusercontent.com/28475668/39559869-0d321384-4e5f-11e8-85c2-ce6e71e5e76b.png)
 
 
 HOT VALVES QUERY
