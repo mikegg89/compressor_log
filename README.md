@@ -41,19 +41,11 @@ ORDER BY created_at DESC;
 TABLES
 ======
 
-## Companies
-| Field | Type         | Null | Key | Default | Extra          |
-|------ | ------------ |----- | --- | ------- | -------------- |
-| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
-| name  | varchar(100) | NO   |     | NULL    |                |
-
-
 ## Locations
 | Field         | Type         | Null | Key | Default | Extra          |
 |---------------|--------------|------|-----|---------|----------------|
 | id            | int(11)      | NO   | PRI | NULL    | auto_increment |
 | location_name | varchar(100) | NO   |     | NULL    |                |
-| company_id    | int(11)      | NO   | MUL | NULL    |                |
 
 
 ## Compressors
@@ -61,7 +53,6 @@ TABLES
 |-------------|-------------|------|-----|---------|----------------|
 | id          | int(11)     | NO   | PRI | NULL    | auto_increment |
 | comp_name   | varchar(20) | NO   |     | NULL    |                |
-| company_id  | int(11)     | NO   | MUL | NULL    |                |
 | location_id | int(11)     | NO   | MUL | NULL    |                |
 
 
@@ -71,7 +62,6 @@ TABLES
 | id          | int(11)      | NO   | PRI | NULL    | auto_increment |
 | first_name  | varchar(100) | NO   |     | NULL    |                |
 | last_name   | varchar(100) | NO   |     | NULL    |                |
-| company_id  | int(11)      | NO   | MUL | NULL    |                |
 | location_id | int(11)      | NO   | MUL | NULL    |                |
 
 
@@ -97,6 +87,3 @@ TABLES
 | operator_id   | int(11)   | NO   | MUL | NULL              |       |
 
 
-Note
-----
-This site has no SQL injection protection and is a prototype of something that natural gas operators would like if it was finished out. 
