@@ -5,14 +5,12 @@ USE compressor_log;
 CREATE TABLE locations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location_name VARCHAR(100) NOT NULL,
-    FOREIGN KEY (company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE compressors (
   id INT AUTO_INCREMENT PRIMARY KEY,
   comp_name VARCHAR(20) NOT NULL,
   location_id INT NOT NULL,
-  FOREIGN KEY (company_id) REFERENCES companies(id),
   FOREIGN KEY (location_id) REFERENCES locations(id)
 );
 
