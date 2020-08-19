@@ -2,22 +2,15 @@ CREATE DATABASE compressor_log;
 
 USE compressor_log;
 
-CREATE TABLE companies (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL
-);
-
 CREATE TABLE locations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location_name VARCHAR(100) NOT NULL,
-    company_id INT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE compressors (
   id INT AUTO_INCREMENT PRIMARY KEY,
   comp_name VARCHAR(20) NOT NULL,
-  company_id INT NOT NULL,
   location_id INT NOT NULL,
   FOREIGN KEY (company_id) REFERENCES companies(id),
   FOREIGN KEY (location_id) REFERENCES locations(id)
@@ -27,7 +20,6 @@ CREATE TABLE operators (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    company_id INT NOT NULL,
     location_id INT NOT NULL,
     FOREIGN KEY (company_id) REFERENCES companies(id),
     FOREIGN KEY (location_id) REFERENCES locations(id)
@@ -55,62 +47,17 @@ CREATE TABLE comp_log (
   FOREIGN KEY (operator_id) REFERENCES operators(id)
 );
 
-INSERT INTO companies (name)
-VALUES ('ENLINK'),('ENBRIDGE'),('ATMOS');
 
 INSERT INTO locations (location_name, company_id)
 VALUES
   ('Jarvis', 1),
   ('East Rome', 1),
   ('Ross', 1),
-  ('Justin', 1),
-  ('Ponder', 1),
-  ('Springtown', 2),
-  ('Loancamp', 2),
-  ('Weatherford', 2),
-  ('Justin', 3);
 
-INSERT INTO compressors (comp_name, company_id, location_id)
+INSERT INTO compressors (comp_name, location_id)
 VALUES
-    ('COMP #1', 1, 1),
-    ('COMP #2', 1, 1),
-    ('COMP #3', 1, 1),
-    ('COMP #4', 1, 1),
-    ('COMP #6', 1, 1),
-    ('COMP #10', 1, 1),
-    ('COMP #11', 1, 1),
-    ('COMP #12', 1, 1),
-    ('COMP #13', 1, 1),
-    ('COMP #1', 1, 2),
-    ('COMP #2', 1, 2),
-    ('COMP #1', 1, 3),
-    ('COMP #1', 1, 4),
-    ('COMP #2', 1, 4),
-    ('COMP #1', 1, 5),
-    ('COMP #2', 1, 5),
-    ('COMP #3', 1, 5),
-    ('COMP #1', 2, 6),
-    ('COMP #2', 2, 6),
-    ('COMP #3', 2, 6),
-    ('COMP #1', 2, 7),
-    ('COMP #1', 2, 8),
-    ('COMP #1', 3, 9);
-
-INSERT INTO operators (first_name, last_name, company_id, location_id)
-VALUES
-        ('Steve', 'Kuhn', 1, 5);
-    ('Micheal', 'Giles', 1, 1),
-    ('Ruben', 'Contreras', 1, 1),
-    ('Jim', 'Bertelmen', 1, 1),
-    ('Steve', 'Smith', 1, 1),
-    ('Marvin', 'Parry', 1, 2),
-    ('Gabe', '...', 1, 3),
-    ('Todd', 'Kume', 1, 4),
-    ('Nick', 'caballero', 1, 5),
-    ('Mike', 'Miller', 2, 6),
-    ('Tim', 'Arnald', 2, 7),
-    ('Ricky', 'White', 2, 8),
-    ('Justin', 'Nelly', 3, 9);
+    ('COMP #1', 1),
+    ('COMP #2', 1),
 
 UPDATE locations SET location_name='East Rhome'
 WHERE location_name='East Rome';
@@ -144,7 +91,6 @@ VALUES
 (71,863,76,1280,4024543,138,75,177,68,259,259,263,263,0,11,5),
 (71,863,70,880,14322543,179,73,172,64,269,256,293,243,0,10,5);
 
-SELECT * FROM companies;
 SELECT * FROM locations;
 SELECT * FROM operators;
 SELECT * FROM compressors;
@@ -207,12 +153,9 @@ SELECT
   CONCAT(
     operators.first_name, ' ',
     operators.last_name, ' works with ',
-    companies.name, ' at the ',
     locations.location_name, ' location'
   ) AS 'operators company and location'
 FROM operators
-JOIN companies
-    ON companies.id = operators.company_id
 JOIN locations
     ON locations.id = operators.location_id;
 
